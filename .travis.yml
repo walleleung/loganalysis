@@ -10,3 +10,6 @@ install:
 
 script:
 - python setup.py nosetests
+
+after_success:
+- coveralls
