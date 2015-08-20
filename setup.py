@@ -24,7 +24,7 @@ test_requirements = [
 
 setup(
     name='loganalysis',
-    version='0.1.0',
+    version='0.1.1',
     description="A collection of log analysis functions and CLIs",
     long_description=readme + '\n\n' + history,
     author="Alan Kang",
