@@ -11,13 +11,12 @@ Log analysis library written in Python
 .. image:: https://coveralls.io/repos/box-and-whisker/loganalysis/badge.svg?branch=master&service=github
         :target: https://coveralls.io/github/box-and-whisker/loganalysis?branch=master
 
-
 A collection of log analysis functions and CLIs:
 
-*   Sessionization
-*   Finite state machine based log processing
+*   Sessionization. See `utils.sessionize() <https://loganalysis.readthedocs.org/en/latest/loganalysis.html#loganalysis.utils.sessionize>`_
+*   Finite state machine based log processing. See `utils.fsm() <https://loganalysis.readthedocs.org/en/latest/loganalysis.html#loganalysis.utils.fsm>`_
 *   A simple extension of a regular expression to denote a pattern across
-    multiple lines
+    multiple lines.
 
 Visit https://loganalysis.readthedocs.org to read full documentation.
 

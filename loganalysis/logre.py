@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Extended regular expression for log files
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 A simple extension of a regular expression to denote a pattern across multiple
 lines.
 """
@@ -11,9 +8,9 @@ import re
 from datetime import datetime
 
 
-P_ROW = re.compile(r'\[\[(.+?)\]\]([^\[]*)')
-P_COL = re.compile(r'\{\{(\d+):(.+?)\}\}')
-DEFAULT_TIME_FORMAT = u'%Y-%m-%dT%H:%M:%S.%f'
+_P_ROW = re.compile(r'\[\[(.+?)\]\]([^\[]*)')
+_P_COL = re.compile(r'\{\{(\d+):(.+?)\}\}')
+_DEFAULT_TIME_FORMAT = u'%Y-%m-%dT%H:%M:%S.%f'
 
 
 class TupleRegex(object):
@@ -31,7 +28,7 @@ class TupleRegex(object):
 def compile_tuple_pattern(p, col_sep='\t'):
     """Turn TupleRegex pattern into plain regex pattern"""
     regex_parts = []
-    matches = list(re.finditer(P_COL, p))
+    matches = list(re.finditer(_P_COL, p))
     last_index = 0
     for m in matches:
         index, pattern = m.groups()
@@ -52,7 +49,7 @@ def encode_tuple(row, sep='\t'):
     encoded = []
     for token in row:
         if type(token) == datetime:
-            encoded.append(token.strftime(DEFAULT_TIME_FORMAT))
+            encoded.append(token.strftime(_DEFAULT_TIME_FORMAT))
         else:
             encoded.append(token)
     return sep.join(encoded)
@@ -83,7 +80,7 @@ def compile_pattern(p, col_sep='\t'):
     row_regexes = []
 
     # Each row in LogRegex pattern
-    m_rows = list(re.finditer(P_ROW, p))
+    m_rows = list(re.finditer(_P_ROW, p))
     for m_row in m_rows:
         row_regexes.append(r'(^')
         cols, modifier = m_row.groups()
@@ -92,7 +89,7 @@ def compile_pattern(p, col_sep='\t'):
         col_regexes = ['\d+']
 
         # Each col in LogRegex's row pattern
-        m_cols = list(re.finditer(P_COL, cols))
+        m_cols = list(re.finditer(_P_COL, cols))
         for m_col in m_cols:
             index, pattern = m_col.groups()
             index = int(index)
