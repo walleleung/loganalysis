@@ -8,7 +8,7 @@ Log analysis library written in Python
 .. image:: https://img.shields.io/pypi/v/loganalysis.svg
         :target: https://pypi.python.org/pypi/loganalysis
 
-.. image:: https://coveralls.io/repos/box-and-whisker/loganalysis/badge.svg?branch=master&service=github
+.. image:: https://coveralls.io/repos/box-and-whisker/loganalysis/badge.svg?branch=master&service=github&dummy=3234
         :target: https://coveralls.io/github/box-and-whisker/loganalysis?branch=master
 
 A collection of log analysis functions and CLIs:
